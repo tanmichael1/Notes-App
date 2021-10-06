@@ -47,6 +47,15 @@ export default class App extends React.Component {
       ]),
     });
   };
+
+  deleteNote = (id, e) => {
+    // Avoid bubbling to edit
+    e.stopPropagation();
+
+    this.setState({
+      notes: this.state.notes.filter((note) => note.id !== id),
+    });
+  };
   render() {
     const { notes } = this.state;
 
@@ -54,7 +63,7 @@ export default class App extends React.Component {
       <div>
         <button onClick={this.addNote}>+</button>
 
-        <Notes notes={notes} />
+        <Notes notes={notes} onDelete={this.deleteNote} />
       </div>
     );
   }
