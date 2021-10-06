@@ -7,10 +7,6 @@ import Footer from "./components/Footer";
 
 import { v4 as uuidv4 } from "uuid";
 
-// if (process.env.NODE_ENV !== "production") {
-//   React.Perf = require("react-addons-perf");
-// }
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +24,15 @@ export default class App extends React.Component {
       ],
     };
   }
+
+  testButton = () => {
+    console.log("test");
+    document.getElementById("test").classList.remove("hidden");
+  };
+
+  togglePopup = () => {
+    document.getElementById("popup-1").classList.toggle("active");
+  };
 
   addNote = () => {
     // It would be possible to write this in an imperative style.
@@ -82,6 +87,7 @@ export default class App extends React.Component {
       }),
     });
   };
+
   render() {
     const { notes } = this.state;
 
@@ -100,6 +106,23 @@ export default class App extends React.Component {
             onDelete={this.deleteNote}
           />
         </div>
+        <div id="test" className="hidden">
+          Test
+        </div>
+
+        <button onClick={this.testButton}>Test Button </button>
+        <div className="popup" id="popup-1">
+          <div class="overlay"></div>
+          <div className="content">
+            <div className="close-btn" onClick={this.togglePopup}>
+              &times;
+            </div>
+            <h1>Title</h1>
+            <p>Lorem ipsum</p>
+          </div>
+        </div>
+        <button onClick={this.togglePopup}>Show Popup</button>
+
         <Footer />
       </div>
     );
