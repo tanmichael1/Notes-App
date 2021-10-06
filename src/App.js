@@ -2,6 +2,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 import Notes from "./components/Notes";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -84,17 +86,21 @@ export default class App extends React.Component {
     const { notes } = this.state;
 
     return (
-      <div>
-        <button className="add-note" onClick={this.addNote}>
-          +
-        </button>
+      <div className="app">
+        <Header />
+        <div className="notesarea">
+          <button className="add-note" onClick={this.addNote}>
+            +
+          </button>
 
-        <Notes
-          notes={notes}
-          onNoteClick={this.activateNoteEdit}
-          onEdit={this.editNote}
-          onDelete={this.deleteNote}
-        />
+          <Notes
+            notes={notes}
+            onNoteClick={this.activateNoteEdit}
+            onEdit={this.editNote}
+            onDelete={this.deleteNote}
+          />
+        </div>
+        <Footer />
       </div>
     );
   }
