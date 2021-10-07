@@ -85,16 +85,19 @@ export default class App extends React.Component {
       <div className="app">
         <Header />
         <div className="notesarea">
-          <button className="add-note" onClick={this.addNote}>
-            +
-          </button>
-
           <Notes
             notes={notes}
             onNoteClick={this.activateNoteEdit}
             onEdit={this.editNote}
             onDelete={this.deleteNote}
-          />
+          />{" "}
+          <button
+            type="button"
+            onClick={this.addNote}
+            class="btn btn-primary add-note"
+          >
+            +
+          </button>{" "}
         </div>
 
         <Footer />
