@@ -40,6 +40,10 @@
   cursor: pointer;
 }
 
+#aboutButton:hover {
+  text-decoration: underline;
+}
+
 .add-note {
   background-color: #fdfdfd;
 

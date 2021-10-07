@@ -28,11 +28,7 @@ function Footer() {
           </p>
         </div>
       </div>
-      <p
-        id="aboutButton"
-        style={{ textDecoration: "underline" }}
-        onClick={togglePopup}
-      >
+      <p id="aboutButton" onClick={togglePopup}>
         {" "}
         About
       </p>

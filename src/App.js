@@ -4,7 +4,6 @@ import React from "react";
 import Notes from "./components/Notes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 import { v4 as uuidv4 } from "uuid";
 
 export default class App extends React.Component {
@@ -24,11 +23,6 @@ export default class App extends React.Component {
       ],
     };
   }
-
-  testButton = () => {
-    console.log("test");
-    document.getElementById("test").classList.remove("hidden");
-  };
 
   addNote = () => {
     // It would be possible to write this in an imperative style.
