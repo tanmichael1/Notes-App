@@ -32,6 +32,14 @@
   color: white;
 }
 
+.about {
+  color: black;
+}
+
+#aboutButton {
+  cursor: pointer;
+}
+
 .add-note {
   background-color: #fdfdfd;
 
@@ -105,8 +113,8 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   background: #fff;
-  width: 450px;
-  height: 220px;
+  width: 550px;
+  height: 320px;
   z-index: 2;
   text-align: center;
   padding: 20px;

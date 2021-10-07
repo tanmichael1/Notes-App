@@ -30,10 +30,6 @@ export default class App extends React.Component {
     document.getElementById("test").classList.remove("hidden");
   };
 
-  togglePopup = () => {
-    document.getElementById("popup-1").classList.toggle("active");
-  };
-
   addNote = () => {
     // It would be possible to write this in an imperative style.
     // I.e., through `this.state.notes.push` and then
@@ -106,22 +102,6 @@ export default class App extends React.Component {
             onDelete={this.deleteNote}
           />
         </div>
-        <div id="test" className="hidden">
-          Test
-        </div>
-
-        <button onClick={this.testButton}>Test Button </button>
-        <div className="popup" id="popup-1">
-          <div class="overlay"></div>
-          <div className="content">
-            <div className="close-btn" onClick={this.togglePopup}>
-              &times;
-            </div>
-            <h1>Title</h1>
-            <p>Lorem ipsum</p>
-          </div>
-        </div>
-        <button onClick={this.togglePopup}>Show Popup</button>
 
         <Footer />
       </div>
