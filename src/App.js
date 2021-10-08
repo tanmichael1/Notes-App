@@ -4,7 +4,6 @@ import React from "react";
 import Notes from "./components/Notes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import NoteSearch from "./components/NoteSearch";
 import { v4 as uuidv4 } from "uuid";
 
 export default class App extends React.Component {
@@ -59,16 +58,14 @@ export default class App extends React.Component {
   };
 
   addNote = () => {
-    // It would be possible to write this in an imperative style.
-    // I.e., through `this.state.notes.push` and then
-    // `this.setState({notes: this.state.notes})` to commit.
-    //
-    // I tend to favor functional style whenever that makes sense.
-    // Even though it might take more code sometimes, I feel
-    // the benefits (easy to reason about, no side effects)
-    // more than make up for it.
-    //
-    // Libraries, such as Immutable.js, go a notch further.
+    var vals = document.getElementsByName("color-pick");
+    var colorVal;
+    vals.forEach(function (val) {
+      if (val.checked) {
+        colorVal = val.value;
+      }
+    });
+    console.log(colorVal);
     this.setState({
       notes: this.state.notes.concat([
         {
@@ -88,13 +85,6 @@ export default class App extends React.Component {
       <div className="app">
         <Header />
         <div className="notesarea">
-          {/* <button
-            type="button"
-            onClick={this.addNote}
-            class="btn btn-primary add-note"
-          >
-            +
-          </button>{" "} */}
           <Notes
             notes={notes}
             onNoteClick={this.activateNoteEdit}
@@ -159,11 +149,15 @@ export default class App extends React.Component {
                 style={{ backgroundColor: "#AED581" }}
               ></label>
             </div>
-            <button
+            {/* <button
               type="button"
               onClick={this.addNote}
               class="btn btn-primary add-note"
             >
+              Add
+            </button> */}
+
+            <button className="add-button add-note" onClick={this.addNote}>
               Add
             </button>
           </div>
