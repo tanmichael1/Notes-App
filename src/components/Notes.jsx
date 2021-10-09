@@ -10,9 +10,13 @@ export default ({
 }) => (
   <ul className="notes">
     <h1>Notes </h1>
-    {notes.map(({ id, editing, task }) => (
+    {notes.map(({ id, editing, task, color }) => (
       <li key={id}>
-        <Note className="note" onClick={onNoteClick.bind(null, id)}>
+        <Note
+          style={{ backgroundColor: color }}
+          className="note"
+          onClick={onNoteClick.bind(null, id)}
+        >
           <Editable
             className="editable"
             editing={editing}

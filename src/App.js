@@ -15,10 +15,12 @@ export default class App extends React.Component {
         {
           id: uuidv4(),
           task: "Learn React",
+          color: "#FFA726",
         },
         {
           id: uuidv4(),
           task: "Do laundry",
+          color: "#FFA726",
         },
       ],
     };
@@ -65,12 +67,12 @@ export default class App extends React.Component {
         colorVal = val.value;
       }
     });
-    console.log(colorVal);
     this.setState({
       notes: this.state.notes.concat([
         {
           id: uuidv4(),
           task: document.getElementById("newText").value,
+          color: colorVal,
         },
       ]),
     });
@@ -98,6 +100,17 @@ export default class App extends React.Component {
               rows={5}
             ></textarea>
             <div className="color-picker" onChange={this.handleColorChange}>
+              <input
+                type="radio"
+                name="color-pick"
+                value="#FFA726"
+                id="color0"
+                defaultChecked
+              />
+              <label
+                htmlFor="color0"
+                style={{ backgroundColor: "#FFA726" }}
+              ></label>
               <input
                 type="radio"
                 name="color-pick"
