@@ -1,9 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-import Notes from "./components/Notes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Notes from "./components/Notes/Notes";
+import NoteEditor from "./components/Notes/NoteEditor";
 import { v4 as uuidv4 } from "uuid";
 
 export default class App extends React.Component {
@@ -12,6 +13,19 @@ export default class App extends React.Component {
 
     this.state = {
       notes: [
+        {
+          id: uuidv4(),
+          task: "Learn React",
+          color: "#FFA726",
+        },
+        {
+          id: uuidv4(),
+          task: "Do laundry",
+          color: "#FFA726",
+        },
+      ],
+      searchValue: "",
+      filteredNotes: [
         {
           id: uuidv4(),
           task: "Learn React",
@@ -75,105 +89,98 @@ export default class App extends React.Component {
           color: colorVal,
         },
       ]),
+      filteredNotes: this.state.filteredNotes.concat([
+        {
+          id: uuidv4(),
+          task: document.getElementById("newText").value,
+          color: colorVal,
+        },
+      ]),
     });
+
+    console.log(this.state);
+    this.updateSearch(this.state.searchValue);
 
     document.getElementById("newText").value = "";
   };
 
+  updateSearch(searchValue) {
+    console.log("AA");
+    console.log(this.state);
+    if (searchValue !== "") {
+      console.log("here");
+      this.state.notes.forEach((note) => {
+        console.log(note.task);
+        console.log(note.task.indexOf(searchValue) !== -1);
+      });
+      this.setState({
+        filteredNotes: this.state.notes.filter(
+          (note) => note.task.indexOf(searchValue) !== -1
+        ),
+      });
+    } else {
+      this.setState({
+        filteredNotes: this.state.notes,
+      });
+    }
+    console.log("filteredNotes");
+    console.log(this.state.filteredNotes);
+  }
+
+  handleSearch = (text) => {
+    var test = text.target.value;
+    this.setState({ searchValue: test });
+    console.log(test);
+    this.updateSearch(test);
+    // console.log(this.state);
+
+    // if (test !== "") {
+    //   console.log("here");
+    //   this.state.notes.forEach((note) => {
+    //     console.log(note.task);
+    //     console.log(note.task.indexOf(test));
+    //   });
+    //   this.setState({
+    //     filteredNotes: this.state.notes.filter(
+    //       (note) => note.task.indexOf(test) == -1
+    //     ),
+    //   });
+    // } else {
+    //   this.setState({
+    //     filteredNotes: this.state.notes,
+    //   });
+    // }
+    // console.log("filteredNotes");
+    // console.log(this.state.filteredNotes);
+  };
+
   render() {
-    const { notes } = this.state;
+    const { notes, filteredNotes, searchValue } = this.state;
 
     return (
       <div className="app">
         <Header />
         <div className="notesarea">
+          <input
+            type="search"
+            className="search-input"
+            placeholder="Search..."
+            onChange={(event) => {
+              this.handleSearch(event);
+            }}
+          />
           <Notes
+            filteredNotes={filteredNotes}
+            searchValue={searchValue}
             notes={notes}
             onNoteClick={this.activateNoteEdit}
             onEdit={this.editNote}
             onDelete={this.deleteNote}
           />{" "}
-          <div className="note-editor">
-            <textarea
-              id="newText"
-              placeholder="Enter your note here..."
-              rows={5}
-            ></textarea>
-            <div className="color-picker" onChange={this.handleColorChange}>
-              <input
-                type="radio"
-                name="color-pick"
-                value="#FFA726"
-                id="color0"
-                defaultChecked
-              />
-              <label
-                htmlFor="color0"
-                style={{ backgroundColor: "#FFA726" }}
-              ></label>
-              <input
-                type="radio"
-                name="color-pick"
-                value="#F06292"
-                id="color1"
-              />
-              <label
-                htmlFor="color1"
-                style={{ backgroundColor: "#F06292" }}
-              ></label>
-              <input
-                type="radio"
-                name="color-pick"
-                value="#BA68C8"
-                id="color2"
-              />
-              <label
-                htmlFor="color2"
-                style={{ backgroundColor: "#BA68C8" }}
-              ></label>
-              <input
-                type="radio"
-                name="color-pick"
-                value="#FFD54F"
-                id="color3"
-              />
-              <label
-                htmlFor="color3"
-                style={{ backgroundColor: "#FFD54F" }}
-              ></label>
-              <input
-                type="radio"
-                name="color-pick"
-                value="#4FC3F7"
-                id="color4"
-              />
-              <label
-                htmlFor="color4"
-                style={{ backgroundColor: "#4FC3F7" }}
-              ></label>
-              <input
-                type="radio"
-                name="color-pick"
-                value="#AED581"
-                id="color5"
-              />
-              <label
-                htmlFor="color5"
-                style={{ backgroundColor: "#AED581" }}
-              ></label>
-            </div>
-            {/* <button
-              type="button"
-              onClick={this.addNote}
-              class="btn btn-primary add-note"
-            >
-              Add
-            </button> */}
-
-            <button className="add-button add-note" onClick={this.addNote}>
-              Add
-            </button>
-          </div>
+          <NoteEditor
+            handleColorChange={this.handleColorChange}
+            addNote={this.addNote}
+          />
         </div>
 
         <Footer />
