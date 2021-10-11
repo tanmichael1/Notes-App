@@ -81,41 +81,54 @@ export default class App extends React.Component {
         colorVal = val.value;
       }
     });
+    var newId = uuidv4();
     this.setState({
       notes: this.state.notes.concat([
         {
-          id: uuidv4(),
+          id: newId,
           task: document.getElementById("newText").value,
           color: colorVal,
         },
       ]),
       filteredNotes: this.state.filteredNotes.concat([
         {
-          id: uuidv4(),
+          id: newId,
           task: document.getElementById("newText").value,
           color: colorVal,
         },
       ]),
     });
+    var newNote = {
+      id: newId,
+      task: document.getElementById("newText").value,
+      color: colorVal,
+    };
 
     console.log(this.state);
-    this.updateSearch(this.state.searchValue);
+    this.updateSearch(this.state.searchValue, newNote);
 
     document.getElementById("newText").value = "";
   };
 
-  updateSearch(searchValue) {
+  updateSearch(searchValue, newNote) {
     console.log("AA");
     console.log(this.state);
+    if (newNote != null) {
+      var currNotes = this.state.notes.push(newNote);
+    }
+
     if (searchValue !== "") {
       console.log("here");
       this.state.notes.forEach((note) => {
         console.log(note.task);
-        console.log(note.task.indexOf(searchValue) !== -1);
+        console.log(
+          note.task.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1
+        );
       });
       this.setState({
         filteredNotes: this.state.notes.filter(
-          (note) => note.task.indexOf(searchValue) !== -1
+          (note) =>
+            note.task.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1
         ),
       });
     } else {
@@ -131,7 +144,7 @@ export default class App extends React.Component {
     var test = text.target.value;
     this.setState({ searchValue: test });
     console.log(test);
-    this.updateSearch(test);
+    this.updateSearch(test, null);
     // console.log(this.state);
 
     // if (test !== "") {
