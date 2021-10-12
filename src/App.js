@@ -182,6 +182,10 @@ export default class App extends React.Component {
               this.handleSearch(event);
             }}
           />
+          <NoteEditor
+            handleColorChange={this.handleColorChange}
+            addNote={this.addNote}
+          />
           <Notes
             filteredNotes={filteredNotes}
             searchValue={searchValue}
@@ -190,10 +194,6 @@ export default class App extends React.Component {
             onEdit={this.editNote}
             onDelete={this.deleteNote}
           />{" "}
-          <NoteEditor
-            handleColorChange={this.handleColorChange}
-            addNote={this.addNote}
-          />
         </div>
 
         <Footer />

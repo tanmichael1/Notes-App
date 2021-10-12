@@ -244,3 +244,13 @@
   transition: all 800ms ease-in-out;
   transform: translate(-50%, -50%) scale(1);
 }
+.search-input {
+  margin: auto;
+  display: block;
+  padding: 7px 20px;
+  font-size: 18px;
+  line-height: 1;
+  outline: none;
+  border-radius: 17px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+}

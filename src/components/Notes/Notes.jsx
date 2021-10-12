@@ -11,7 +11,6 @@ export default ({
   onDelete = () => {},
 }) => (
   <ul className="notes">
-    <h1>Notes </h1>
     {searchValue != "" ? (
       <div>
         {filteredNotes.map(({ id, editing, task, color }) => (
