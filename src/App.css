@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+/* Notes and Footer */
 
 .header {
   background-color: #194bad;
@@ -11,13 +9,6 @@
   justify-content: center;
   font-size: 22px;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.headerText {
   text-align: center;
 }
 
@@ -30,54 +21,69 @@
   justify-content: center;
   font-size: 22px;
   color: white;
-
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-
   text-align: center;
 }
 
-.about {
-  color: black;
+/* Notes */
+
+.notesarea {
+  align-items: center;
+  margin-top: 40px;
 }
 
-#aboutButton {
-  cursor: pointer;
-}
-
-#aboutButton:hover {
-  text-decoration: underline;
-}
-
-.add-note {
-  /* background-color: #fdfdfd; */
-  width: 100px;
-
-  border: 1px solid #ccc;
-}
+/* Notes List */
 
 .notes {
-  margin: 0.5em;
+  margin: auto;
   padding-left: 0;
 
   max-width: 20em;
+  align-items: center;
   list-style: none;
 }
 
-.notesarea {
-  padding-left: 25%;
-}
 .note {
   overflow: auto;
 
   margin-bottom: 0.5em;
   padding: 0.5em;
-
+  align-items: center;
   background-color: #fdfdfd;
   box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.3);
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  padding: 10px;
+  height: auto;
+  /* float: left; */
 }
+
+/* .note {
+  width: 200px;
+  height: auto;
+  float: left;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 2px;
+  padding: 10px;
+  margin-bottom: 10px;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+} */
+
 .note:hover {
   box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.7);
 
@@ -107,6 +113,8 @@
 .note:hover .delete {
   visibility: visible;
 }
+
+/* Add Notes */
 
 #newText {
   width: 20em;
@@ -163,6 +171,7 @@
 
 .color-picker {
   width: 50%;
+  margin-top: 20px;
   margin-bottom: -35px;
 }
 .color-picker input {
@@ -192,8 +201,18 @@
   border-bottom: 1px solid;
 }
 
-.hidden {
-  display: none;
+/* About */
+
+.about {
+  color: black;
+}
+
+#aboutButton {
+  cursor: pointer;
+}
+
+#aboutButton:hover {
+  text-decoration: underline;
 }
 
 .popup .overlay {
@@ -242,7 +261,7 @@
 
 .popup.active .content {
   transition: all 800ms ease-in-out;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -250%) scale(1);
 }
 .search-input {
   margin: auto;
@@ -253,4 +272,10 @@
   outline: none;
   border-radius: 17px;
   border: 1px solid rgba(0, 0, 0, 0.24);
+}
+
+/* Other */
+
+.hidden {
+  display: none;
 }

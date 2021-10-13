@@ -4,6 +4,7 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Notes from "./components/Notes/Notes";
+import Search from "./components/Notes/Search";
 import NoteEditor from "./components/Notes/NoteEditor";
 import { v4 as uuidv4 } from "uuid";
 
@@ -145,26 +146,6 @@ export default class App extends React.Component {
     this.setState({ searchValue: test });
     console.log(test);
     this.updateSearch(test, null);
-    // console.log(this.state);
-
-    // if (test !== "") {
-    //   console.log("here");
-    //   this.state.notes.forEach((note) => {
-    //     console.log(note.task);
-    //     console.log(note.task.indexOf(test));
-    //   });
-    //   this.setState({
-    //     filteredNotes: this.state.notes.filter(
-    //       (note) => note.task.indexOf(test) == -1
-    //     ),
-    //   });
-    // } else {
-    //   this.setState({
-    //     filteredNotes: this.state.notes,
-    //   });
-    // }
-    // console.log("filteredNotes");
-    // console.log(this.state.filteredNotes);
   };
 
   render() {
@@ -174,14 +155,7 @@ export default class App extends React.Component {
       <div className="app">
         <Header />
         <div className="notesarea">
-          <input
-            type="search"
-            className="search-input"
-            placeholder="Search..."
-            onChange={(event) => {
-              this.handleSearch(event);
-            }}
-          />
+          <Search handleSearch={this.handleSearch} />
           <NoteEditor
             handleColorChange={this.handleColorChange}
             addNote={this.addNote}
