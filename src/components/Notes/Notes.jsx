@@ -10,11 +10,11 @@ export default ({
   onEdit = () => {},
   onDelete = () => {},
 }) => (
-  <ul className="notes">
+  <div className="notes notes-grid" useRef="grid">
     {searchValue != "" ? (
       <div>
         {filteredNotes.map(({ id, editing, task, color }) => (
-          <li key={id}>
+          <div key={id}>
             <Note
               style={{ backgroundColor: color }}
               className="note"
@@ -34,13 +34,13 @@ export default ({
                 x
               </button>
             </Note>
-          </li>
+          </div>
         ))}{" "}
       </div>
     ) : (
       <div>
         {notes.map(({ id, editing, task, color }) => (
-          <li key={id}>
+          <div key={id}>
             <Note
               style={{ backgroundColor: color }}
               className="note"
@@ -60,9 +60,9 @@ export default ({
                 x
               </button>
             </Note>
-          </li>
+          </div>
         ))}{" "}
       </div>
     )}
-  </ul>
+  </div>
 );
