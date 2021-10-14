@@ -10,7 +10,7 @@ export default ({
   onEdit = () => {},
   onDelete = () => {},
 }) => (
-  <div className="notes notes-grid" useRef="grid">
+  <div className="notes" useRef="grid">
     {searchValue != "" ? (
       <div>
         {filteredNotes.map(({ id, editing, task, color }) => (

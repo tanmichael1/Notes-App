@@ -35,23 +35,20 @@
   margin-top: 40px;
 }
 
-.notes-grid {
-  margin: 0 auto;
-  align-items: center;
-  margin-left: 1000px;
-}
-
 /* Notes List */
 
 .notes {
   margin: auto;
   padding-left: 0;
-  margin-left: 700px;
-  max-width: 1000px;
+  /* margin-left: 17vw; */
+  /* max-width: 900px; */
 
   /* min-width: 20em; */
   align-items: center;
+  width: 40%;
   /* list-style: none; */
+  margin: 0 auto;
+  align-items: center;
 }
 
 .note {
@@ -59,6 +56,7 @@
   width: 200px;
   float: left;
   margin-bottom: 0.5em;
+  margin-left: 10px;
   padding: 0.5em;
   align-items: center;
   background-color: #fdfdfd;
@@ -73,25 +71,6 @@
   padding: 10px;
   height: auto;
 }
-
-/* .note {
-  width: 200px;
-  height: auto;
-
-  float: left;
-  background-color: yellow;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  border-radius: 2px;
-  padding: 10px;
-  margin-bottom: 10px;
-  -webkit-transition: box-shadow 0.3s;
-  transition: box-shadow 0.3s;
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
-} */
 
 .note:hover {
   box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.7);
@@ -288,3 +267,43 @@
 .hidden {
   display: none;
 }
+
+/*Extra small*/
+@media only screen and (min-width: 0px) {
+}
+
+/*Quite small*/
+@media only screen and (min-width: 360px) {
+}
+
+/*Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up)*/
+
+/* @media only screen and (min-width: 992px) {
+  .notes {
+    margin-left: 880px;
+  }
+} */
+
+/* desktop styles */
+
+/* @media screen and (min-width: 1200px) {
+  .notes {
+    margin-left: 880px;
+  }
+} */
+
+/* desktop styles */
+
+/* @media screen and (min-width: 1400px) {
+  .notes {
+    margin-left: 380px;
+  }
+} */
