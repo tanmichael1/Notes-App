@@ -33,6 +33,7 @@
 .notesarea {
   align-items: center;
   margin-top: 40px;
+  /* margin-bottom: 100px; */
 }
 
 /* Notes List */
@@ -49,6 +50,9 @@
   /* list-style: none; */
   margin: 0 auto;
   align-items: center;
+  max-height: 500px;
+  max-height: 50vh;
+  overflow-y: auto;
 }
 
 .note {
@@ -294,16 +298,16 @@
 
 /* desktop styles */
 
-/* @media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
   .notes {
-    margin-left: 880px;
+    /* margin-left: 380px; */
   }
-} */
+}
 
 /* desktop styles */
 
-/* @media screen and (min-width: 1400px) {
+@media screen and (min-width: 1400px) {
   .notes {
-    margin-left: 380px;
+    /* margin-left: 380px; */
   }
-} */
+}
