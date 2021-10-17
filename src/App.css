@@ -109,7 +109,7 @@
 /* Add Notes */
 
 #newText {
-  width: 20em;
+  width: 90%;
 }
 
 .note-editor {
@@ -270,4 +270,28 @@
 
 .hidden {
   display: none;
+}
+
+/*Extra small*/
+@media only screen and (min-width: 0px) {
+}
+
+/*Quite small*/
+@media only screen and (min-width: 360px) {
+}
+
+/*Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media only screen and (min-width: 992px) {
+}
+
+/* desktop styles */
+@media screen and (min-width: 1200px) {
 }
