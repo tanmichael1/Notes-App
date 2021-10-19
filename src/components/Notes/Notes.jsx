@@ -2,7 +2,7 @@ import React from "react";
 import Note from "./Note";
 import Editable from "./Editable";
 
-export default ({
+const Notes = ({
   notes,
   filteredNotes,
   searchValue,
@@ -16,7 +16,7 @@ export default ({
     // style={{ overflowY: "auto" }}
   >
     <div>
-      {searchValue != "" ? (
+      {searchValue !== "" ? (
         <div>
           {filteredNotes.map(({ id, editing, task, color }) => (
             <div key={id}>
@@ -72,3 +72,5 @@ export default ({
     </div>
   </div>
 );
+
+export default Notes;

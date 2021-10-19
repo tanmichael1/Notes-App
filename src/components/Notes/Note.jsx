@@ -1,3 +1,5 @@
 import React from "react";
 
-export default ({ children, ...props }) => <div {...props}>{children}</div>;
+const Note = ({ children, ...props }) => <div {...props}>{children}</div>;
+
+export default Note;
