@@ -104,27 +104,17 @@ export default class App extends React.Component {
       color: colorVal,
     };
 
-    console.log(this.state);
     this.updateSearch(this.state.searchValue, newNote);
 
     document.getElementById("newText").value = "";
   };
 
   updateSearch(searchValue, newNote) {
-    console.log("AA");
-    console.log(this.state);
     if (newNote != null) {
       this.state.notes.push(newNote);
     }
 
     if (searchValue !== "") {
-      console.log("here");
-      this.state.notes.forEach((note) => {
-        console.log(note.task);
-        console.log(
-          note.task.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1
-        );
-      });
       this.setState({
         filteredNotes: this.state.notes.filter(
           (note) =>
@@ -136,15 +126,12 @@ export default class App extends React.Component {
         filteredNotes: this.state.notes,
       });
     }
-    console.log("filteredNotes");
-    console.log(this.state.filteredNotes);
   }
 
-  handleSearch = (text) => {
-    var test = text.target.value;
-    this.setState({ searchValue: test });
-    console.log(test);
-    this.updateSearch(test, null);
+  handleSearch = (input) => {
+    var text = input.target.value;
+    this.setState({ searchValue: text });
+    this.updateSearch(text, null);
   };
 
   render() {

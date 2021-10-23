@@ -10,11 +10,7 @@ const Notes = ({
   onEdit = () => {},
   onDelete = () => {},
 }) => (
-  <div
-    className="notes"
-    useRef="grid"
-    // style={{ overflowY: "auto" }}
-  >
+  <div className="notes" useRef="grid">
     <div>
       {searchValue !== "" ? (
         <div>
