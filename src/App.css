@@ -110,10 +110,12 @@
 
 #newText {
   width: 90%;
+  resize: none;
 }
 
 .note-editor {
   width: 100%;
+
   max-width: 600px;
   padding: 16px;
   margin: 16px auto;
